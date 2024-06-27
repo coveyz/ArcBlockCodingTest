@@ -17,8 +17,8 @@
     "tsc": "tsc",
     "clean": "tsc -b --clean",
     "dev:app": "export NODE_ENV='dev' && egg-bin dev ",
-    "dev:client":"cd client && npm run dev",
-    "dev": "concurrently \"npm run dev:app\" \"npm run dev:client\" ", 
+    "dev:client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run dev:app\" \"sleep 15 && npm run dev:client\"",
     "install:client": "cd client && npm install",
     "postinstall": "npm run install:client"
   },
@@ -33,7 +33,10 @@
     "concurrently": "^8.2.2",
     "egg": "^3.15.0",
     "egg-scripts": "^2.17.0",
-    "egg-tracer": "^2.0.0"
+    "egg-sequelize": "^6.0.0",
+    "egg-tracer": "^2.0.0",
+    "mysql2": "^3.10.1",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@eggjs/tsconfig": "1",

@@ -15,6 +15,26 @@ export default (appInfo: EggAppInfo) => {
     sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
   };
 
+  config.sequelize = {
+    dialect: 'sqlite',
+    storage: 'database.sqlite', // SQLite 的存储文件
+    define: {
+      timestamps: false, // 关闭自动添加时间戳
+    },
+  };
+
+  // 跨域
+  config.cors = {
+    origin: '*',
+    allowMethods: [ 'GET', 'POST' ],
+  };
+
+  config.security = {
+    csrf: {
+      enable: false, // 禁用 CSRF 防护，方便开发调试
+    },
+  };
+
   // the return config will combines to EggAppConfig
   return {
     ...config,

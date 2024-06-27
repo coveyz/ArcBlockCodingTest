@@ -8,6 +8,14 @@ class BaseController extends Controller {
       success: true,
     };
   }
+  error(error: string) {
+    this.ctx.body = {
+      data: null,
+      status: -1,
+      success: false,
+      message: error || 'Error',
+    };
+  }
 }
 
 export default BaseController;

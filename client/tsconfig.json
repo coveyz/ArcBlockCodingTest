@@ -1,11 +1,40 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
+  "compilerOptions": {
+    "target": "esnext",  // 目标 ECMAScript 版本（在此示例中为 ESNext）
+    "module": "esnext",  // 模块解析类型（在此示例中为 ESNext）
+    "moduleResolution": "Node",// 模块解析策略（Node.js 风格）
+    "strict": true,
+    "jsx": "preserve",  // 处理 JSX 的方式（保持原样）
+    "importHelpers": true,  // 是否导入帮助函数
+    "experimentalDecorators": true,  // 是否启用装饰器支持
+    "strictFunctionTypes": false,  // 是否启用函数类型的严格检查
+    "skipLibCheck": true,  // 是否跳过库文件的类型检查
+    "esModuleInterop": true,  // 是否启用 ES 模块交互操作性
+    "isolatedModules": true,  // 是否启用隔离模块编译
+    "allowSyntheticDefaultImports": true,  // 是否允许合成默认导入
+    "forceConsistentCasingInFileNames": true,  // 是否强制一致的文件名大小写
+    "sourceMap": true,  // 是否生成源映射文件
+    "baseUrl": ".",  // 用于解析非相对模块名称的基本 URL
+    "allowJs": false,  // 是否允许编译 JavaScript 文件
+    "resolveJsonModule": true,  // 是否启用解析 JSON 模块
+    "lib": ["dom", "esnext"],  // 可用的库文件列表
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "noImplicitAny": true,
+    "paths": {
+      "@/*": ["src/*"]
     },
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+    "types": [
+      "vite/client",
+      "element-plus/global",
+    ],
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "types/*.d.ts",
+    "vite.config.ts"
+  ],
+  "exclude": ["dist", "**/*.js", "node_modules", "src/public-path"],
 }
